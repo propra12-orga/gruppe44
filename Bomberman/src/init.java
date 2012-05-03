@@ -16,8 +16,8 @@ public class init extends Frame {
 		size_px = (int)(dm.getHeight()-20) / size;
 
 		setSize(dm.getWidth(),dm.getHeight());
+		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setVisible(true);
-
 	}
 	
 	
@@ -25,10 +25,7 @@ public class init extends Frame {
 	public void paint(Graphics g) {
 		for (int i = 1; i<15; i+=2) {
 			for (int j=1; j<15; j+=2) {
-				g.fillRect(i * size_px, j * size_px, size_px, size_px);
-				//System.out.println("x:"+i+"y:"+j);
-				System.out.println("x:"+i*size_px);
-				System.out.println("x:"+j*size_px);
+				g.fillRect(j * size_px, i * size_px, size_px, size_px);
 			}
 		}
 		//g.setColor(Color.RED);
