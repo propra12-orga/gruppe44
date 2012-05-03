@@ -16,6 +16,7 @@ public class init extends Frame {
 		size_px = (int)(dm.getHeight()-20) / size;
 
 		setSize(dm.getWidth(),dm.getHeight());
+		setUndecorated(true);
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setVisible(true);
 	}
