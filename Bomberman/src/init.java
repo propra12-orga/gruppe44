@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 
 public class init extends Frame {
 	public int size = 15;
@@ -7,13 +8,21 @@ public class init extends Frame {
 	public init() {
 		super("Bombergarden");
 		addWindowListener(new WindowClosingAdapter(true));
+		addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e)
+			{
+			if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+				dispose();
+			}
+			}
+			});
 		setBackground(Color.WHITE);
 		
 		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		GraphicsDevice gd = env.getDefaultScreenDevice();
 		DisplayMode dm = gd.getDisplayMode();
 			
-		size_px = (int)(dm.getHeight()-20) / size;
+		size_px = (int)(dm.getHeight() / size);
 
 		setSize(dm.getWidth(),dm.getHeight());
 		setUndecorated(true);
