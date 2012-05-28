@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.awt.Color;
 
 
@@ -59,3 +60,46 @@ public class Bomb extends Objekte implements Runnable {
 	}	
 
 }
+=======
+/**
+ * @author Giulia Kirstein (2019594)
+ *
+ */
+public class Bomb {
+
+	private int positionX, positionY;
+	private int radius;
+	private int time;
+	private int player;
+	
+	public Bomb(int positionX, int positionY, int radius, int time, int player) {
+		this.positionX = positionX;
+		this.positionY = positionY;
+		this.radius = radius;
+		this.time = time;
+		this.player = player;
+	}
+	
+	public int getPositionX() {
+		return this.positionX; 
+	}
+	
+	public int getPositionY() {
+		return this.positionY; 
+	}
+	
+	public int getRadius() {
+		return this.radius;
+	}
+	
+	public int getTime() {
+		return this.time;
+	}
+	
+	public int getPlayer() {
+		return this.player;
+	}
+	
+}
+	
+>>>>>>> Bombe die Zweite
