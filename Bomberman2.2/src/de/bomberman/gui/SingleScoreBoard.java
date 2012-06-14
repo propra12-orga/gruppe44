@@ -9,6 +9,13 @@ import javax.swing.JPanel;
 
 import de.bomberman.playground.Playground;
 
+/**
+ * 
+ * @author Gruppe44
+ * Scoreboard fuer jeden einzelnen Spieler
+ * 
+ */
+
 public class SingleScoreBoard extends JPanel {
 
 	private int ID;
@@ -20,9 +27,14 @@ public class SingleScoreBoard extends JPanel {
 	public SingleScoreBoard(int ID) {
 		setLayout(new GridLayout(4,2));
 		this.ID = ID;
-		setBorder(BorderFactory.createLineBorder(Color.red));
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		Setzen();
 	}
+	/**
+	 * Adden von Kills, Deaths und Ranks
+	 */
+	
+	// Positonen = Rank ?
 	
 	private void Setzen() {
 		add(new JLabel(Playground.getPlayers()[ID].getName()));
@@ -35,6 +47,11 @@ public class SingleScoreBoard extends JPanel {
 		add(new JLabel("1st"));
 	}
 	
+	/**
+	 * Loeschen aller Panels, neue Panels werden gesetzt
+	 * Upload der Panels
+	 * Aktualisieren des Scoreboards
+	 */
 	public void uploadPanel() {
 		removeAll();
 		Setzen();

@@ -12,13 +12,21 @@ import javax.swing.JPanel;
 import de.bomberman.main.BombermanMain;
 import de.bomberman.playground.Playground;
 
+
+/**
+ * 
+ * @author Gruppe44
+ * Initialisierung des Playgrounds -> Fieldintialisierung
+ * Upload der Graphiken
+ *
+ */
 public class PlaygroundGUI extends JPanel {
 	
 	private static final long serialVersionUID = 8543194726501404948L;
 	
 	private static FieldGUI[][] fields;
 	
-	//pictures
+	//Pictures
 	public static Image EMPTY_FIELD_IMAGE;  
 	public static Image UNBREAKABLE_WALL;
 	public static Image BOMB;
@@ -44,7 +52,7 @@ public class PlaygroundGUI extends JPanel {
 		setBackground(new Color(0,255,0));
 
 		
-		fields = new FieldGUI[Playground.getSize()][Playground.getSize()]; //Tabelle für die einzelnen Felder [x][y]
+		fields = new FieldGUI[Playground.getSize()][Playground.getSize()]; //Tabelle fuer die einzelnen Felder [x][y]
 		
 		for (int i = 0; i < Playground.getSize() ; i++) {
 			for (int j = 0; j < Playground.getSize() ; j++) {

@@ -11,6 +11,13 @@ import de.bomberman.gui.MainGUI;
 import de.bomberman.gui.menugui.NameDialog;
 import de.bomberman.gui.menugui.PropertiesDialog;
 
+
+/**
+ * 
+ * @author Gruppe44
+ * Dropdown-Menue mit einzelnen Auswahlmöglichkeiten wird erstellt
+ *
+ */
 public class BombermanMenuBar extends JMenuBar {
 	public BombermanMenuBar(){
 		JMenu data = new JMenu("data");
@@ -30,6 +37,10 @@ public class BombermanMenuBar extends JMenuBar {
 		add(data);
 	}
 	
+	/**
+	 * Schliessen des Spiels und Fenster durch Klicken des Exit-Buttons
+	 * @return action 
+	 */
 	private AbstractAction getExit(){
 	 	AbstractAction action = new AbstractAction("exit") {
 			@Override
@@ -40,6 +51,10 @@ public class BombermanMenuBar extends JMenuBar {
 		return action;
 	}
 
+	/**
+	 * Ermoeglicht in "Properites" die Spielfeldgroesse und Spieleranzahl zu aendern
+	 * @return action 
+	 */
 	private AbstractAction getProperties(){
 	 	AbstractAction action = new AbstractAction("Properties") {
 			@Override
@@ -51,6 +66,11 @@ public class BombermanMenuBar extends JMenuBar {
 		return action;
 	}
 	
+/**
+ * Ermoeglicht die Auswahl der vier verschiedenen Spieler um Namen zu aendern/zuzuordnen
+ * @param playerID (gibt die Spielernummer wieder)
+ * @return action
+ */
 	private AbstractAction getName(final int playerID){
 	 	AbstractAction action = new AbstractAction("Player " + playerID) {
 			@Override

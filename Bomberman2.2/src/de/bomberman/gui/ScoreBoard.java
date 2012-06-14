@@ -7,6 +7,11 @@ import javax.swing.JPanel;
 
 import de.bomberman.playground.Playground;
 
+
+/**
+ * @author Gruppe 44
+ * Initialisierung des Scoreboards -> einzelne Panels fuer Player und ihre Scores
+ */
 public class ScoreBoard extends JPanel {
 	private static SingleScoreBoard panelP1;
 	private static SingleScoreBoard panelP2;
@@ -33,6 +38,9 @@ public class ScoreBoard extends JPanel {
 
 	}
 	
+/**
+ * Upload des initialiesierten Scoreboards
+ */
 	public void uploadScoreBoard() {
 		switch (Playground.getCntPlayer()) {
 		case 4:

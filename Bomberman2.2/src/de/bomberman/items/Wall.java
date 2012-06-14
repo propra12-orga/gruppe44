@@ -2,7 +2,7 @@ package de.bomberman.items;
 
 /**
  * @author Rena Moehlmann (2042105)
- *
+ * Initalisieren einer Wand, die kaputt gehen kann. (Inkluive Position etc)
  */
 public class Wall {
 
@@ -30,14 +30,16 @@ public class Wall {
 		this.positionX = positionX;
 		this.positionY = positionY;
 		this.breakable = false;
-		//Konstruktor für feste Wand
+		//Konstruktor fuer feste Wand
 	}
 	
 
 	public Wall() {
 		this.breakable = false;
 	}
-
+/**
+ * Anzahl der Male, die eine Wand von einer Bombe getroffen werden muss, um kaputt zu gehen, wird bestimmt (zufaellig)
+ */
 	private void randomStrange() {
 		int randomNumber = (int) (Math.random()*10);
 		if (randomNumber < 4)
@@ -46,14 +48,16 @@ public class Wall {
 			this.power = 2;
 		if (randomNumber > 6 && randomNumber <= 10)
 			this.power = 3;
-		//bestimmt Anzahl der Male, die eine Wand von einer Bombe getroffen werden muss, um kaputt zu gehen
+		
 	}
 	
 	public boolean isBreakable() {
 		return this.breakable;
-		//gibt Wert der Wand zurück
+		//gibt Wert der Wand zurueck
 	}
-
+/**
+ * wird die Wand getroffen, wird ihr ein "Power" abgezogen
+ */
 	public void subPower() {
 		power--;
 	}

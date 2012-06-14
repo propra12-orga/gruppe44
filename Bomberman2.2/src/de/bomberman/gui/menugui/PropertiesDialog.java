@@ -12,6 +12,13 @@ import javax.swing.JTextArea;
 import de.bomberman.main.BombermanMain;
 import de.bomberman.playground.Playground;
 
+/**
+ * 
+ * @author Gruppe 44
+ * Auswahl von Spielfeldgröße und Anzahl der Player
+ * 
+ */
+
 public class PropertiesDialog extends JDialog {
 	public static final int COLUMNS = 2;
 	public static final int ROWS = 3;
@@ -34,13 +41,19 @@ public class PropertiesDialog extends JDialog {
 		add(submit);
 		setVisible(true);
 	}
+	
+	/**
+	 * Ermöglicht Eingabe von Spielfeldgröße und Playeranzahl
+	 * Spielfeldgröße = max. 40 , Playeranzahl = max. 4
+	 * Bei Eingabe einer Spielfeldgröße >40 @exception NumberFormatException e
+	 */
 
 	private ActionListener getSubmitListener() {
 		
 		return new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TO-DO eigende Exception basteln ;-)
+				//
 				try{
 					int tempSize = Integer.parseInt(sizeArea.getText());
 					if (tempSize > 40 || tempSize < 0 )
@@ -50,7 +63,7 @@ public class PropertiesDialog extends JDialog {
 					if ( tempPlayerCnt > 4 || tempPlayerCnt < 0)
 						throw new NumberFormatException();
 					
-					// anzahl spieler 
+					// Playeranzahl
 					
 					JDialog gui =(JDialog) BombermanMain.getGUI();
 					gui.setVisible(false);
@@ -61,6 +74,7 @@ public class PropertiesDialog extends JDialog {
 					BombermanMain.setCntPlayer(tempPlayerCnt);
 					BombermanMain.init();
 					
+				// Auffangen der Exception
 				} catch (NumberFormatException e) {
 					System.out.println("Please insert an correct integer number between 0 and 40");
 					if (BombermanMain.DEBUG)

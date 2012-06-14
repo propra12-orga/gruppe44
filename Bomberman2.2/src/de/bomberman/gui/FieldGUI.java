@@ -16,11 +16,20 @@ import de.bomberman.main.Player;
 import de.bomberman.playground.Playground;
 import de.bomberman.timer.ExplosionGUITimer;
 
+
+/**
+ * 
+ * @author Gruppe 44
+ * Spielfeld wird gezeichnet
+ * Wände, Bomben, Explosionen bekommen Grafik zugeordnet, wenn diese nicht angezeigt werden können/nicht vorhanden sind -> Setzen der Farben
+ * Farben der einzelnen Spieler werden gesetzt
+ * 
+ */
 public class FieldGUI extends JPanel{
 
 	private static final long serialVersionUID = -4858368222783600824L;
 	
-	//colors
+	// Colors
 	public static final boolean SHOW_FIELD_BORDER = false;
 	public static final Color FIELD_BORDER_COLOR = Color.BLACK;
 	public static final Color COLOR_PLAYER_ONE = Color.RED;
@@ -37,15 +46,22 @@ public class FieldGUI extends JPanel{
 	private boolean explosionCross = false;
 	private int positionX, positionY; 
 	
+	
+	//Hintergrund des gesamten Feldes ist blau. Überprüfen ob jede Feldgraphik gemalt wird
 	public FieldGUI(int positionX,int positionY) {
 		this.positionX = positionX;
 		this.positionY = positionY;
 		setBackground(Color.BLUE);
+		// SHOW_FIELD_BORDER zur Kontrolle ob Felder richtig gesetzt wurden
 		if(SHOW_FIELD_BORDER)
 			setBorder(BorderFactory.createLineBorder(FIELD_BORDER_COLOR));
 		setVisible(true);
 	}
 	
+	/**
+	 * Abfrage ob Feld von Spieler, Bombe oder Wand belegt ist
+	 * Wenn ein Feld belegt ist, wird Graphik (wenn Graphik nicht vorhanden = Farbe) des jeweiligen Objekts gezeichnet
+	 */
 	public void paintComponent(Graphics g){
 		Image tempImage = null;
 		boolean pictureNotFound = false;
@@ -53,7 +69,7 @@ public class FieldGUI extends JPanel{
 		Bomb tempBomb = Playground.getFields()[this.positionX][this.positionY].getBomb();
 		Wall tempWall = Playground.getFields()[this.positionX][this.positionY].getWall();
 	
-		if(tempPlayer != null) { // NEU ;-)
+		if(tempPlayer != null) { 
 			switch (BombermanMain.getCntPlayer()){
 			case 4:
 				if(BombermanMain.DEBUG)
@@ -133,7 +149,10 @@ public class FieldGUI extends JPanel{
 	public void paintNew() {
 		repaint();
 	}
-
+/**
+ * 
+ * Startet ExplosionGUITimer, damit Explosion wieder ueberzeichnet wird
+ */
 	public void setExplosionHorizontal(boolean explosionHorizontal) {
 		this.explosionHorizontal = explosionHorizontal;
 		repaint();
@@ -141,13 +160,22 @@ public class FieldGUI extends JPanel{
 			new ExplosionGUITimer(this);
 	}
 
+	/**
+	 * 
+	 * Startet ExplosionGUITimer, damit Explosion wieder ueberzeichnet wird
+	 */	
 	public void setExplosionVertikal(boolean explosionVertikal) {
 		this.explosionVertikal = explosionVertikal;
 		repaint();
 		if (explosionVertikal)
 			new ExplosionGUITimer(this);
 	}
-
+	
+	/**
+	 * 
+	 * Startet ExplosionGUITimer, damit Explosion wieder ueberzeichnet wird
+	 */
+	
 	public void setExplosionCross(boolean explosionCross) {
 		this.explosionCross = explosionCross;
 		repaint();
