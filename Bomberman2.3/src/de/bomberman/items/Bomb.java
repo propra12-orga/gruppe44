@@ -10,22 +10,30 @@ import de.bomberman.timer.InterruptBombTimer;
 
 /**
  * @author Giulia Kirstein (2019594)
- *
+ * Bombe wird initialisiert
+ * Feld, Radius, time und Player werden der Bombe zugewiesen
  */
 public class Bomb extends Item {
 
 	//private int positionX, positionY;
 	private int range;
 	private int time;
-	private BombTimer timer; // neu
+	private BombTimer timer; 
 	
 	public Bomb(LogicField field, int radius, int time, Player player) {
 		super(player,field);
 		this.range = radius;
 		this.time = time;
-		this.timer = new BombTimer(this); // neu
+		this.timer = new BombTimer(this); 
 	}
-	
+	/**
+	 * Es wird geguckt ob ein Spieler oder eine Wand im vorgegebenen Radius ist
+	 * Andere Spieler die von einer Bombe getroffen -> killPlayer()
+	 * Wand stopt die Explosion in die Richtung
+	 * Nach setzen einer Bombbe wird der BombTimer erstellt und gestartet
+	 * Kettenreaktionen werden ausgelöst
+	 * 
+	 */
 	public void exploding() {
 		int x = field.getPositionX();
 		int y = field.getPositionY();
@@ -142,6 +150,12 @@ public class Bomb extends Item {
 			//################################################################
 		}
 	}
+	/**
+	 * Setzt die Player Dead setDead(true) und added für den Spieler, der die Bombe gelegt hat,
+	 * einen Punkt für den Score
+	 * Der getötete Spieler bekommt einen Punkt abgezogen subScore()
+	 * @param player
+	 */
 	// method for killing Player
 	private void killPlayer(Player player) {
 		if (player != null) {
